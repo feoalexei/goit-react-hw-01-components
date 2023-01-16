@@ -8,10 +8,11 @@ import {
   Percent,
 } from './Statistics.styled';
 
-export default function Statistics({ data }) {
+export default function Statistics({ data, title }) {
+  console.log(data);
   return (
     <StyledStatistics>
-      {!!data.title ? <Title>{data.title}</Title> : <Title>Upload stats</Title>}
+      {!!title ? <Title>{title}</Title> : <Title>Upload stats</Title>}
       <StatList>
         {data.map(stat => (
           <StatItem
@@ -19,6 +20,7 @@ export default function Statistics({ data }) {
             style={{
               backgroundColor: randomColor(),
             }}
+            length={data.length}
           >
             <span>{stat.label}</span>
             <Percent>{stat.percentage}</Percent>

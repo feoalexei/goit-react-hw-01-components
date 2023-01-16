@@ -21,7 +21,7 @@ const StyledFriends = styled.ul`
 `;
 
 FriendsList.propTypes = {
-  friends: PropTypes.arrayOf(
+  data: PropTypes.arrayOf(
     PropTypes.exact({
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
