@@ -12,8 +12,9 @@ import {
   Value,
 } from './Profile.styled';
 
-export default function Profile(props) {
-  const { username, tag, location, avatar, stats } = props.data;
+export default function Profile({
+  data: { username, tag, location, avatar, stats },
+}) {
   return (
     <StyledProfile>
       <Description>
@@ -42,13 +43,15 @@ export default function Profile(props) {
 }
 
 Profile.propTypes = {
-  username: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
-  stats: PropTypes.exact({
-    followers: PropTypes.number,
-    views: PropTypes.number,
-    likes: PropTypes.number,
+  data: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    tags: PropTypes.string,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+      followers: PropTypes.number,
+      views: PropTypes.number,
+      likes: PropTypes.number,
+    }),
   }),
 };

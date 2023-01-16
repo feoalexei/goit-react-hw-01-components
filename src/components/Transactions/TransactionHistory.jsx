@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Transaction from './Transaction';
 
-export default function TransHistory(transactions) {
+export default function TransHistory({ data }) {
   return (
     <StyledTransactions>
       <thead>
@@ -14,7 +14,7 @@ export default function TransHistory(transactions) {
         </tr>
       </thead>
       <tbody>
-        {transactions.data.map(({ id, type, amount, currency }) => (
+        {data.map(({ id, type, amount, currency }) => (
           <Transaction
             key={id}
             type={type}
@@ -30,6 +30,7 @@ export default function TransHistory(transactions) {
 const StyledTransactions = styled.table`
   table-layout: fixed;
   width: 50%;
+  min-width: 300px;
   border-collapse: collapse;
   border: 1px solid darkgray;
   text-align: center;

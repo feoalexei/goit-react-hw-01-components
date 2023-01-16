@@ -8,16 +8,12 @@ import {
   Percent,
 } from './Statistics.styled';
 
-export default function Statistics(props) {
+export default function Statistics({ data }) {
   return (
     <StyledStatistics>
-      {!!props.title ? (
-        <Title>{props.title}</Title>
-      ) : (
-        <Title>Upload stats</Title>
-      )}
+      {!!data.title ? <Title>{data.title}</Title> : <Title>Upload stats</Title>}
       <StatList>
-        {props.data.map(stat => (
+        {data.map(stat => (
           <StatItem
             key={stat.id}
             style={{

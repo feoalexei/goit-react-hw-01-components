@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 import Friend from './FriendListItem';
 
-export default function FriendsList(friends) {
-  console.log(friends);
+export default function FriendsList({ data }) {
   return (
     <StyledFriends>
-      {friends.data.map(({ avatar, name, isOnline, id }) => (
+      {data.map(({ avatar, name, isOnline, id }) => (
         <Friend key={id} avatar={avatar} isOnline={isOnline} name={name} />
       ))}
     </StyledFriends>
