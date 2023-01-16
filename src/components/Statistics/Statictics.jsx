@@ -8,8 +8,7 @@ import {
   Percent,
 } from './Statistics.styled';
 
-export default function Statistics({ data, title }) {
-  console.log(data);
+export default function Statistics({ title, data }) {
   return (
     <StyledStatistics>
       {!!title ? <Title>{title}</Title> : <Title>Upload stats</Title>}
@@ -20,7 +19,6 @@ export default function Statistics({ data, title }) {
             style={{
               backgroundColor: randomColor(),
             }}
-            length={data.length}
           >
             <span>{stat.label}</span>
             <Percent>{stat.percentage}</Percent>
@@ -33,8 +31,11 @@ export default function Statistics({ data, title }) {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.exact({
-    label: PropTypes.string.isRequired,
-    percentage: PropTypes.number.isRequired,
-  }),
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ),
 };

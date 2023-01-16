@@ -22,11 +22,11 @@ const StyledFriends = styled.ul`
 
 FriendsList.propTypes = {
   data: PropTypes.arrayOf(
-    PropTypes.exact({
+    PropTypes.shape({
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
-      id: PropTypes.string.isRequired,
-    })
+      id: PropTypes.number.isRequired,
+    }).isRequired
   ),
 };

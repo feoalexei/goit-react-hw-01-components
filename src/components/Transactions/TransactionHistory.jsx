@@ -47,11 +47,12 @@ const StyledTransactions = styled.table`
 `;
 
 TransHistory.propTypes = {
-  transactions: PropTypes.arrayOf(
-    PropTypes.exact({
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
       type: PropTypes.string.isRequired,
       amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
-    })
+      id: PropTypes.string.isRequired,
+    }).isRequired
   ),
 };
